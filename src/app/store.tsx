@@ -4,18 +4,16 @@ import { useRouter } from "next/navigation";
 import { useAppContext } from "./app"
 
 export default function Store() {
-  const {setStore} = useAppContext()
+  const {store, setStore} = useAppContext()
   const router = useRouter();
 
-  const handleClick = () => {
-    setStore('test')
-    router.push('/about');
-  }
-
+  console.log(store)
+  
   return (
     <div className="">
       <h2>Store</h2>
-      <button onClick={handleClick}>Set Store</button>
+      <button onClick={() => setStore('test')}>Set context state</button>
+      <button onClick={() => router.push('/about')}>Go to checkout</button>
     </div>
   )
 }
